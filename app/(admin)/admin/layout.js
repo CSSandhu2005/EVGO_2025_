@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { Sidebar } from "../admin/_components/sidebar";
 import { getAdmin } from "@/actions/admin";
-import Header from "@/components/header"
+import Header from "@/components/Header";
 
 
 export default async function AdminLayout({ children }) {
