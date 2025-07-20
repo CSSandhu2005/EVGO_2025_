@@ -26,9 +26,6 @@ const Header = async ({ isAdminPage = false }) => {
             alt="EVGO LOGO"
             className="h-12 w-auto object-contain rounded-full"
           />
-          {isAdminPage && (
-            <span className="text-xs font-extralight">admin</span>
-          )}
         </Link>
 
 

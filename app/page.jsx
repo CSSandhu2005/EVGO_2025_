@@ -1,6 +1,6 @@
-"use client";
-import CarCard from "@/components/CarCard";
-import HomeSearch from "@/components/home-search";
+import { getFeaturedCars } from "@/actions/home";
+import { CarCard } from "@/components/car-card";
+import { HomeSearch } from "@/components/home-search";
 import {
   Accordion,
   AccordionContent,
@@ -8,13 +8,16 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { bodyTypes, carMakes, faqItems, featuredCars } from "@/lib/data";
+import { bodyTypes, carMakes, faqItems } from "@/lib/data";
 import { SignedOut } from "@clerk/nextjs";
 import { Calendar, Car, ChevronRight, Heart, Shield } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+
+  const featuredCars = await getFeaturedCars() ; 
+
   return (
     <div className="pt-20 flex flex-col">
       {/* HERO */}
@@ -204,7 +207,7 @@ export default function Home() {
           </Button>
           <SignedOut>
             <Button size="lg" asChild>
-              <Link href="/sign-up">Sing Up Now !</Link>
+              <Link href="/sign-up">Sign Up Now !</Link>
             </Button>
           </SignedOut>
         </div>

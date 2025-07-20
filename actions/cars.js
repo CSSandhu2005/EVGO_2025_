@@ -42,15 +42,15 @@ export async function processCarImageWithAI(file) {
     // Define the prompt for car detail extraction
     const prompt = `
       Analyze this car image and extract the following information:
-      1. Make (manufacturer)
+      1. Make (manufacturer , Like Which Company Makes This Like MG ( Morris Garage, Tata, BMW, Etc... ))
       2. Model
       3. Year (approximately)
       4. Color
       5. Body type (SUV, Sedan, Hatchback, etc.)
-      6. Mileage
+      6. Mileage (Keep This As Constant 10000)
       7. Fuel type (your best guess)
       8. Transmission type (your best guess)
-      9. Price (your best guess)
+      9. Price (your best guess and give the number like "30000" , "40000" etc.. and it should be reasonable according to the car value and price)
       9. Short Description as to be added to a car listing
 
       Format your response as a clean JSON object with these fields:
@@ -60,7 +60,7 @@ export async function processCarImageWithAI(file) {
         "year": 0000,
         "color": "",
         "price": "",
-        "mileage": "",
+        "mileage": "",~~~
         "bodyType": "",
         "fuelType": "",
         "transmission": "",
@@ -143,7 +143,7 @@ export async function addCar({ carData, images }) {
     const folderPath = `cars/${carId}`;
 
     // Initialize Supabase client for server-side operations
-    const cookieStore = await cookies()
+    const cookieStore = await cookies();
     const supabase = createClient(cookieStore);
 
     // Upload all images to Supabase storage

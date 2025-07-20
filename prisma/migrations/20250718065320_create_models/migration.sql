@@ -51,10 +51,10 @@ CREATE TABLE "Car" (
 -- CreateTable
 CREATE TABLE "DealershipInfo" (
     "id" TEXT NOT NULL,
-    "name" TEXT NOT NULL DEFAULT 'Vehiql Motors',
-    "address" TEXT NOT NULL DEFAULT '69 Car Street, Autoville, CA 69420',
-    "phone" TEXT NOT NULL DEFAULT '+1 (555) 123-4567',
-    "email" TEXT NOT NULL DEFAULT 'contact@vehiql.com',
+    "name" TEXT NOT NULL DEFAULT 'EVGO',
+    "address" TEXT NOT NULL DEFAULT 'For Address Assistance, Please Do Contact Us .',
+    "phone" TEXT NOT NULL DEFAULT '+91 123-4567',
+    "email" TEXT NOT NULL DEFAULT 'evgoconnect@gmail.com',
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
