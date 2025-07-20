@@ -17,7 +17,7 @@ const Header = async ({ isAdminPage = false }) => {
     <header className="fixed top-0 w-full bg-[#d4fe01]/80 backdrop-blur-md z-50 border-b">
       <nav className="mx-auto px-4 py-4 flex items-center justify-between">
 
-        <Link href="#" className="flex items-center">
+        <Link href="/" className="flex items-center">
         {/* LOGO SIDE */}
           <Image
             src={"/EVGO.png"}

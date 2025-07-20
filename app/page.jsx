@@ -73,7 +73,7 @@ export default async function Home() {
               return (
                 <Link
                   key={make.name}
-                  href={`/car?make=${make.name}`}
+                  href={`/cars?make=${make.name}`}
                   className="bg-white rounded-lg shadow p-4 text-center hover:shadow-md transition cursor-pointer"
                 >
                   <div className="h-16 w-auto mx-auto mb-2 relative">
@@ -151,7 +151,7 @@ export default async function Home() {
               return (
                 <Link
                   key={type.name}
-                  href={`/car?make=${type.name}`}
+                  href={`/cars?bodyType=${type.name}`}
                   className="relative group cursor-pointer"
                 >
                   <div className="overflow-hidden rounded-lg flex justify-end h-45 mb-8 relative bg-white">
