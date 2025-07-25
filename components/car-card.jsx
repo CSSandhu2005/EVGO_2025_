@@ -15,7 +15,7 @@ import useFetch from "@/hooks/use-fetch";
 import { CardSpotlight } from "./ui/card-spotlight";
 
 import React, { useId, useRef } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 
 export const CarCard = ({ car }) => {

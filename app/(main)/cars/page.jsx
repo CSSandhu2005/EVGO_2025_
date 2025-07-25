@@ -8,6 +8,9 @@ export const metadata = {
   description: "Browse and search for your dream EV",
 };
 
+export const dynamic = "force-dynamic";
+
+
 export default async function CarsPage() {
   // Fetch filters data on the server
   const filtersData = await getCarFilters();

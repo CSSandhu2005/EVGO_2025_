@@ -1,3 +1,4 @@
+
 import { getFeaturedCars } from "@/actions/home";
 import { CarCard } from "@/components/car-card";
 import { HomeSearch } from "@/components/home-search";
@@ -22,7 +23,6 @@ import {
   GlowingStarsTitle,
   GlowingStarsDescription,
 } from "@/components/ui/glowing-stars";
-import { useScroll, useTransform } from "motion/react";
 import React from "react";
 import { GeminiCard } from "@/components/gemini-card";
 import { Timeline } from "@/components/ui/timeline";
@@ -121,7 +121,7 @@ export default async function Home() {
       content: (
         <div>
           <p className="mb-4 text-xs font-normal text-neutral-800 md:text-lg dark:text-neutral-200">
-            Your EV as gone now gone through a set of checks through our AI And we have analyzed the price of your vehicle, this includes your battery check, exterior damages and everything our AI needs to make sure that your EV is values at a fair price ! 
+            Your EV has gone now gone through a set of checks through our AI And we have analyzed the price of your vehicle, this includes your battery check, exterior damages and everything our AI needs to make sure that your EV is values at a fair price ! 
           </p>
           <div className="grid grid-cols-2 gap-4">
             <img
