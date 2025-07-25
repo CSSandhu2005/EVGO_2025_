@@ -191,15 +191,19 @@ export function CarDetails({ car, testDriveInfo }) {
             {car.year} {car.make} {car.model}
           </h1>
 
-          <div className="text-2xl font-bold text-blue-600">
-            {formatCurrency(car.price)}
+          <div className="text-2xl font-bold text-[#A5E100]">
+            {new Intl.NumberFormat("en-IN", {
+              style: "currency",
+              currency: "INR",
+              maximumFractionDigits: 0,
+            }).format(car.price)}
           </div>
 
           {/* Quick Stats */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 my-6">
             <div className="flex items-center gap-2">
               <Gauge className="text-gray-500 h-5 w-5" />
-              <span>{car.mileage.toLocaleString()} miles</span>
+              <span>{car.mileage.toLocaleString()} Kms</span>
             </div>
             <div className="flex items-center gap-2">
               <Fuel className="text-gray-500 h-5 w-5" />
@@ -214,14 +218,14 @@ export function CarDetails({ car, testDriveInfo }) {
           <Dialog>
             <DialogTrigger className="w-full text-start">
               <Card className="pt-5">
-                <CardContent>
+                <CardContent> 
                   <div className="flex items-center gap-2 text-lg font-medium mb-2">
-                    <Currency className="h-5 w-5 text-blue-600" />
+                    <Currency className="h-5 w-5 text-[#A5E100]" />
                     <h3>EMI Calculator</h3>
                   </div>
                   <div className="text-sm text-gray-600">
                     Estimated Monthly Payment:{" "}
-                    <span className="font-bold text-gray-900">
+                    <span className="font-bold text-gray-900 dark:text-[#A5E100]">
                       {formatCurrency(car.price / 60)}
                     </span>{" "}
                     for 60 months
@@ -244,7 +248,7 @@ export function CarDetails({ car, testDriveInfo }) {
           <Card className="my-6">
             <CardContent className="p-4">
               <div className="flex items-center gap-2 text-lg font-medium mb-2">
-                <MessageSquare className="h-5 w-5 text-blue-600" />
+                <MessageSquare className="h-5 w-5 text-[#A5E100]" />
                 <h3>Have Questions?</h3>
               </div>
               <p className="text-sm text-gray-600 mb-3">
@@ -288,11 +292,11 @@ export function CarDetails({ car, testDriveInfo }) {
       </div>
 
       {/* Details & Features Section */}
-      <div className="mt-12 p-6 bg-white rounded-lg shadow-sm">
+      <div className="mt-12 p-6 bg-white rounded-lg shadow-sm dark:bg-[#111111]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h3 className="text-2xl font-bold mb-6">Description</h3>
-            <p className="whitespace-pre-line text-gray-700">
+            <p className="whitespace-pre-line text-gray-700 dark:text-white">
               {car.description}
             </p>
           </div>
@@ -300,25 +304,25 @@ export function CarDetails({ car, testDriveInfo }) {
             <h3 className="text-2xl font-bold mb-6">Features</h3>
             <ul className="grid grid-cols-1 gap-2">
               <li className="flex items-center gap-2">
-                <span className="h-2 w-2 bg-blue-600 rounded-full"></span>
+                <span className="h-2 w-2 bg-blue-600 rounded-full dark:bg-[#A5E100]"></span>
                 {car.transmission} Transmission
               </li>
               <li className="flex items-center gap-2">
-                <span className="h-2 w-2 bg-blue-600 rounded-full"></span>
+                <span className="h-2 w-2 bg-blue-600 rounded-full dark:bg-[#A5E100]"></span>
                 {car.fuelType} Engine
               </li>
               <li className="flex items-center gap-2">
-                <span className="h-2 w-2 bg-blue-600 rounded-full"></span>
+                <span className="h-2 w-2 bg-blue-600 rounded-full dark:bg-[#A5E100]"></span>
                 {car.bodyType} Body Style
               </li>
               {car.seats && (
                 <li className="flex items-center gap-2">
-                  <span className="h-2 w-2 bg-blue-600 rounded-full"></span>
+                  <span className="h-2 w-2 bg-blue-600 rounded-full dark:bg-[#A5E100]"></span>
                   {car.seats} Seats
                 </li>
               )}
               <li className="flex items-center gap-2">
-                <span className="h-2 w-2 bg-blue-600 rounded-full"></span>
+                <span className="h-2 w-2 bg-blue-600 rounded-full dark:bg-[#A5E100]"></span>
                 {car.color} Exterior
               </li>
             </ul>
@@ -327,47 +331,47 @@ export function CarDetails({ car, testDriveInfo }) {
       </div>
 
       {/* Specifications Section */}
-      <div className="mt-8 p-6 bg-white rounded-lg shadow-sm">
+      <div className="mt-8 p-6 bg-white rounded-lg shadow-sm dark:bg-[#111111] dark:text-white">
         <h2 className="text-2xl font-bold mb-6">Specifications</h2>
-        <div className="bg-gray-50 rounded-lg p-6">
+        <div className="bg-gray-50 rounded-lg p-6 dark:bg-[#111111] dark:text-white">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
             <div className="flex justify-between py-2 border-b">
-              <span className="text-gray-600">Make</span>
+              <span className="text-gray-600 dark:text-white">Make</span>
               <span className="font-medium">{car.make}</span>
             </div>
             <div className="flex justify-between py-2 border-b">
-              <span className="text-gray-600">Model</span>
+              <span className="text-gray-600 dark:text-white">Model</span>
               <span className="font-medium">{car.model}</span>
             </div>
             <div className="flex justify-between py-2 border-b">
-              <span className="text-gray-600">Year</span>
+              <span className="text-gray-600 dark:text-white">Year</span>
               <span className="font-medium">{car.year}</span>
             </div>
             <div className="flex justify-between py-2 border-b">
-              <span className="text-gray-600">Body Type</span>
+              <span className="text-gray-600 dark:text-white">Body Type</span>
               <span className="font-medium">{car.bodyType}</span>
             </div>
             <div className="flex justify-between py-2 border-b">
-              <span className="text-gray-600">Fuel Type</span>
+              <span className="text-gray-600 dark:text-white">Fuel Type</span>
               <span className="font-medium">{car.fuelType}</span>
             </div>
             <div className="flex justify-between py-2 border-b">
-              <span className="text-gray-600">Transmission</span>
+              <span className="text-gray-600 dark:text-white">Transmission</span>
               <span className="font-medium">{car.transmission}</span>
             </div>
             <div className="flex justify-between py-2 border-b">
-              <span className="text-gray-600">Mileage</span>
+              <span className="text-gray-600 dark:text-white">Mileage</span>
               <span className="font-medium">
-                {car.mileage.toLocaleString()} miles
+                {car.mileage.toLocaleString()} Kms
               </span>
             </div>
             <div className="flex justify-between py-2 border-b">
-              <span className="text-gray-600">Color</span>
+              <span className="text-gray-600 dark:text-white">Color</span>
               <span className="font-medium">{car.color}</span>
             </div>
             {car.seats && (
               <div className="flex justify-between py-2 border-b">
-                <span className="text-gray-600">Seats</span>
+                <span className="text-gray-600 dark:text-white">Seats</span>
                 <span className="font-medium">{car.seats}</span>
               </div>
             )}
@@ -376,23 +380,25 @@ export function CarDetails({ car, testDriveInfo }) {
       </div>
 
       {/* Dealership Location Section */}
-      <div className="mt-8 p-6 bg-white rounded-lg shadow-sm">
+      <div className="mt-8 p-6 bg-white rounded-lg shadow-sm dark:text-white dark:bg-[#111111]">
         <h2 className="text-2xl font-bold mb-6">Dealership Location</h2>
-        <div className="bg-gray-50 rounded-lg p-6">
+        <div className="bg-gray-50 rounded-lg p-6 dark:text-white dark:bg-[#111111]">
           <div className="flex flex-col md:flex-row gap-6 justify-between">
             {/* Dealership Name and Address */}
             <div className="flex items-start gap-3">
-              <LocateFixed className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
+              <LocateFixed className="h-5 w-5 text-[#A5E100] mt-1 flex-shrink-0" />
               <div>
                 <h4 className="font-medium">EVGO</h4>
                 <p className="text-gray-600">
-                  {testDriveInfo.dealership?.address || "The Address Of The DealerShip, Will Be Sent After Booking"}
+                  {testDriveInfo.dealership?.address ||
+                    "The Address Of The DealerShip, Will Be Sent After Booking"}
                 </p>
                 <p className="text-gray-600 mt-1">
                   Phone: {testDriveInfo.dealership?.phone || "+91 123-456"}
                 </p>
                 <p className="text-gray-600">
-                  Email: {testDriveInfo.dealership?.email || "evgoconnect@gmail.com"}
+                  Email:{" "}
+                  {testDriveInfo.dealership?.email || "evgoconnect@gmail.com"}
                 </p>
               </div>
             </div>

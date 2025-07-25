@@ -41,17 +41,17 @@ export async function processCarImageWithAI(file) {
 
     // Define the prompt for car detail extraction
     const prompt = `
-      Analyze this car image and extract the following information:
+      Analyze this EV image and extract the following information According To Rupees And Indian Currency:
       1. Make (manufacturer , Like Which Company Makes This Like MG ( Morris Garage, Tata, BMW, Etc... ))
       2. Model
       3. Year (approximately)
       4. Color
       5. Body type (SUV, Sedan, Hatchback, etc.)
       6. Mileage (Keep This As Constant 10000)
-      7. Fuel type (your best guess)
+      7. Fuel type (your best guess , If Electric Always Keep This Automatic)
       8. Transmission type (your best guess)
-      9. Price (your best guess and give the number like "30000" , "40000" etc.. and it should be reasonable according to the car value and price)
-      9. Short Description as to be added to a car listing
+      9. Price (your best guess and give the number like "3000000" , "4000000" etc.. and it should be reasonable according to the car value and price And Should Be In Indian Currency And Also Take In Conisderation Like , What The Brand New Car Would Cost And What It Will Cost After You Consider It's Mileage , Running And Battery Condition And Approx . Second Hand Resellig Price In Indian Rupees .)
+      9. Short Description as to be added to a car listing (Take Consider Of It Battery Health As Well)
 
       Format your response as a clean JSON object with these fields:
       {

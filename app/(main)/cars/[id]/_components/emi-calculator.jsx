@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { formatCurrency } from "@/lib/helpers";
 
 function EmiCalculator({ price = 1000 }) {
   const [loanAmount, setLoanAmount] = useState(price);
@@ -94,7 +95,7 @@ function EmiCalculator({ price = 1000 }) {
             <div className="space-y-3">
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <span className="text-gray-700 dark:text-gray-300">$</span>
+                  <span className="text-gray-700 dark:text-gray-300">₹</span>
                 </div>
                 <input
                   type="number"
@@ -125,7 +126,7 @@ function EmiCalculator({ price = 1000 }) {
             <div className="space-y-3">
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <span className="text-gray-700 dark:text-gray-300">$</span>
+                  <span className="text-gray-700 dark:text-gray-300">₹</span>
                 </div>
                 <input
                   type="number"
@@ -165,7 +166,7 @@ function EmiCalculator({ price = 1000 }) {
                     onChange={(e) =>
                       handleInterestRateChange(parseFloat(e.target.value))
                     }
-                    className="w-full pr-8 py-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:border-gray-900 dark:focus:border-gray-400"
+                    className="w-full pr-8 py-2 px-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:border-gray-900 dark:focus:border-gray-400"
                   />
                   <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                     <span className="text-gray-700 dark:text-gray-300">%</span>
@@ -197,7 +198,7 @@ function EmiCalculator({ price = 1000 }) {
                     onChange={(e) =>
                       handleLoanTenureChange(parseFloat(e.target.value))
                     }
-                    className="w-full pr-12 py-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:border-gray-900 dark:focus:border-gray-400"
+                    className="w-full pr-12 py-2 px-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:border-gray-900 dark:focus:border-gray-400"
                   />
                   <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                     <span className="text-gray-700 dark:text-gray-300">
@@ -232,7 +233,7 @@ function EmiCalculator({ price = 1000 }) {
                   Monthly Payment
                 </div>
                 <div className="text-3xl font-bold text-gray-900 dark:text-white mt-1">
-                  ${formatNumber(results.emi)}
+                  {formatCurrency(results.emi)}
                 </div>
               </div>
 
@@ -242,7 +243,7 @@ function EmiCalculator({ price = 1000 }) {
                     Vehicle Price
                   </div>
                   <div className="text-lg font-bold text-gray-900 dark:text-white mt-1">
-                    ${formatNumber(loanAmount)}
+                    {formatCurrency(loanAmount)}
                   </div>
                 </div>
 
@@ -251,7 +252,7 @@ function EmiCalculator({ price = 1000 }) {
                     Down Payment
                   </div>
                   <div className="text-lg font-bold text-gray-900 dark:text-white mt-1">
-                    ${formatNumber(results.downPayment)}
+                    {formatCurrency(results.downPayment)}
                   </div>
                 </div>
 
@@ -260,7 +261,7 @@ function EmiCalculator({ price = 1000 }) {
                     Loan Amount
                   </div>
                   <div className="text-lg font-bold text-gray-900 dark:text-white mt-1">
-                    ${formatNumber(results.loanPrincipal)}
+                    {formatCurrency(results.loanPrincipal)}
                   </div>
                 </div>
 
@@ -269,7 +270,7 @@ function EmiCalculator({ price = 1000 }) {
                     Total Interest
                   </div>
                   <div className="text-lg font-bold text-gray-900 dark:text-white mt-1">
-                    ${formatNumber(results.totalInterest)}
+                    {formatCurrency(results.totalInterest)}
                   </div>
                 </div>
 
@@ -278,8 +279,8 @@ function EmiCalculator({ price = 1000 }) {
                     Total Amount (Down Payment + Total Payments)
                   </div>
                   <div className="text-lg font-bold text-gray-900 dark:text-white mt-1">
-                    $
-                    {formatNumber(
+
+                    {formatCurrency(
                       parseFloat(results.downPayment) +
                         parseFloat(results.totalPayment)
                     )}

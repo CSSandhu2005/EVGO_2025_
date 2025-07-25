@@ -47,7 +47,7 @@ export const CarFilterControls = ({
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 bg-black">
       {/* Price Range */}
       <div className="space-y-4">
         <h3 className="font-medium">Price Range</h3>
@@ -61,8 +61,8 @@ export const CarFilterControls = ({
           />
         </div>
         <div className="flex items-center justify-between">
-          <div className="font-medium text-sm">$ {priceRange[0]}</div>
-          <div className="font-medium text-sm">$ {priceRange[1]}</div>
+          <div className="font-medium text-sm">₹{priceRange[0]}</div>
+          <div className="font-medium text-sm">₹{priceRange[1]}</div>
         </div>
       </div>
 

@@ -234,7 +234,13 @@ export const CarsList = () => {
                         {car.make} {car.model}
                       </TableCell>
                       <TableCell>{car.year}</TableCell>
-                      <TableCell>{formatCurrency(car.price)}</TableCell>
+                      <TableCell>
+                        {new Intl.NumberFormat("en-IN", {
+                          style: "currency",
+                          currency: "INR",
+                          maximumFractionDigits: 0,
+                        }).format(car.price)}
+                      </TableCell>
                       <TableCell>{getStatusBadge(car.status)}</TableCell>
                       <TableCell>
                         <Button
