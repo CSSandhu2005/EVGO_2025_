@@ -67,10 +67,8 @@ export default async function Home() {
             <img
               src="/upload_ev.png"
               alt="startup template"
-              
               className="h-full  rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
             />
-           
           </div>
         </div>
       ),
@@ -88,10 +86,8 @@ export default async function Home() {
             <img
               src="/ev_analysis.png"
               alt="hero template"
-             
               className="h-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
             />
-            
           </div>
         </div>
       ),
@@ -110,10 +106,8 @@ export default async function Home() {
             <img
               src="/ev_verified.png"
               alt="hero template"
-            
               className="h-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
             />
-            
           </div>
         </div>
       ),
@@ -389,15 +383,6 @@ export default async function Home() {
 
       <div className="h-[25rem] flex items-center justify-center">
         <TextHoverEffect text="EVGO" />
-
-        <div className="flex flex-col items-center justify-center h-[20rem] gap-5">
-          <TypewriterEffectSmooth words={words} />
-          <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4">
-            <button href="/cars" className="w-40 h-10 rounded-xl bg-white text-black border border-black text-sm">
-              Explore Evs
-            </button>
-          </div>
-        </div>
       </div>
     </div>
   );
