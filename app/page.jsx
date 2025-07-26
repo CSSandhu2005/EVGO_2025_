@@ -318,10 +318,7 @@ export default async function Home() {
 
       <div className="relative w-full overflow-clip mt-10">
         <Timeline data={data} />
-      </div>
-
-      {/* <ModelViewer /> */}
-
+      </div>  
       <div className="w-full overflow-hidden bg-white dark:bg-[#0B0B0F]">
         <MacbookScroll
           title={
@@ -382,7 +379,7 @@ export default async function Home() {
       </div>
 
       <div className="h-[25rem] flex items-center justify-center">
-        <TextHoverEffect text="EVGO" />
+        <TextHoverEffect text="TRY EVGO" />
       </div>
     </div>
   );
