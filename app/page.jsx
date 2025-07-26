@@ -1,4 +1,3 @@
-
 import { getFeaturedCars } from "@/actions/home";
 import { CarCard } from "@/components/car-card";
 import { HomeSearch } from "@/components/home-search";
@@ -9,7 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { bodyTypes, carMakes, faqItems } from "@/lib/data";
+import { bodyTypes, carMakes, faqItems, Logo_Dark } from "@/lib/data";
 import { Calendar, Car, ChevronRight, Shield } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,6 +25,12 @@ import {
 import React from "react";
 import { GeminiCard } from "@/components/gemini-card";
 import { Timeline } from "@/components/ui/timeline";
+import ModelViewer from "@/components/animations/Components/ModelViewer/ModelViewer";
+import { Spotlight } from "@/components/ui/spotlight-new";
+import { LinkPreview } from "@/components/ui/link-preview";
+import { MacbookScroll } from "@/components/ui/macbook-scroll";
+import { TextHoverEffect } from "@/components/ui/text-hover-effect";
+import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
 
 export default async function Home() {
   const featuredCars = await getFeaturedCars();
@@ -121,7 +126,10 @@ export default async function Home() {
       content: (
         <div>
           <p className="mb-4 text-xs font-normal text-neutral-800 md:text-lg dark:text-neutral-200">
-            Your EV has gone now gone through a set of checks through our AI And we have analyzed the price of your vehicle, this includes your battery check, exterior damages and everything our AI needs to make sure that your EV is values at a fair price ! 
+            Your EV has gone now gone through a set of checks through our AI And
+            we have analyzed the price of your vehicle, this includes your
+            battery check, exterior damages and everything our AI needs to make
+            sure that your EV is values at a fair price !
           </p>
           <div className="grid grid-cols-2 gap-4">
             <img
@@ -364,71 +372,70 @@ export default async function Home() {
         <Timeline data={data} />
       </div>
 
-      {/* FAQ */}
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-8 md:grid-cols-5 md:gap-12">
-            <div className="md:col-span-2">
-              <h2 className="text-foreground text-4xl font-semibold">FAQs</h2>
-              <p className="text-muted-foreground mt-4 text-balance text-lg">
-                Your questions answered
-              </p>
-              <p className="text-muted-foreground mt-6 hidden md:block">
-                Can't find what you're looking for? Contact our{" "}
-                <Link
-                  href="#"
-                  className="text-primary font-medium hover:underline"
-                >
-                  customer support team
-                </Link>
-              </p>
-            </div>
+      {/* <ModelViewer /> */}
 
-            <div className="md:col-span-3">
-              <Accordion type="single" collapsible>
-                {faqItems.map((item) => (
-                  <AccordionItem key={item.id} value={item.id}>
-                    <AccordionTrigger className="cursor-pointer text-base hover:no-underline">
-                      {item.question}
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <p className="text-base">{item.answer}</p>
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
+      <div className="w-full overflow-hidden bg-white dark:bg-[#0B0B0F]">
+        <MacbookScroll
+          title={
+            <span>
+              Modern DashBoard To Analyze &Sell The Fleet Of EVs For Business
+              Owners. <br /> Right From Your EVGO DashBoard.
+            </span>
+          }
+          badge={
+            <a href="https://evgoindia.com">
+              <Image
+                src={Logo_Dark[0].image}
+                width="12"
+                height="12"
+                className="h-10 w-10 -rotate-12 transform"
+                alt="EVGO Logo Here"
+              />
+            </a>
+          }
+          src={`/linear.webp`}
+          showGradient={false}
+        />
+      </div>
 
-            <p className="text-muted-foreground mt-6 md:hidden">
-              Can't find what you're looking for? Contact our{" "}
-              <Link
-                href="#"
-                className="text-primary font-medium hover:underline"
+      <div className="w-full rounded-md flex md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden py-25">
+        <Spotlight />
+        <div className=" p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
+          <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50 mb-5">
+            Future Mobility, Pre-Owned Assurity.
+          </h1>
+          <div className="flex justify-center items-center flex-col px-4">
+            <div className="text-neutral-500 dark:text-neutral-400 text-xl md:text-3xl max-w-5xl mx-auto mb-10">
+              Upload your EV{" "}
+              <LinkPreview url="https://tailwindcss.com" className="font-bold">
+                Front View
+              </LinkPreview>{" "}
+              Or{" "}
+              <LinkPreview
+                url="https://framer.com/motion"
+                className="font-bold"
               >
-                customer support team
-              </Link>
-            </p>
+                DashBoard ScreenShot
+              </LinkPreview>{" "}
+              These photos will now will be sent to the AI for Analysis .
+            </div>
+            <div className="text-neutral-500 dark:text-neutral-400 text-xl md:text-3xl max-w-5xl mx-auto">
+              After A list of checks Done by{" "}
+              <LinkPreview
+                url="https://ui.aceternity.com"
+                className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500"
+              >
+                Gemini
+              </LinkPreview>{" "}
+              with prompts curated by us. your EV is now Verified By EVGO.
+            </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* CTA */}
-      <section className="py-16 dotted-background">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Find Your Dream EV Now!</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Join Our Growing Audience Making Smarter And Sustainable Choices For
-            A Better Future With EVs.
-          </p>
-        </div>
-
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <Button size="lg" variant="secondary" asChild>
-            <Link href="/cars">View All Cars</Link>
-          </Button>
-          <SignedOutButtons />
-        </div>
-      </section>
+      <div className="h-[40rem] flex items-center justify-center">
+        <TextHoverEffect text="EVGO" />
+      </div>
     </div>
   );
 }
@@ -448,6 +455,49 @@ const Icon = () => {
         strokeLinejoin="round"
         d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
       />
+    </svg>
+  );
+};
+
+// Peerlist logo
+const Badge = ({ className }) => {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 56 56"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <path
+        d="M56 28C56 43.464 43.464 56 28 56C12.536 56 0 43.464 0 28C0 12.536 12.536 0 28 0C43.464 0 56 12.536 56 28Z"
+        fill="#00AA45"
+      ></path>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M28 54C42.3594 54 54 42.3594 54 28C54 13.6406 42.3594 2 28 2C13.6406 2 2 13.6406 2 28C2 42.3594 13.6406 54 28 54ZM28 56C43.464 56 56 43.464 56 28C56 12.536 43.464 0 28 0C12.536 0 0 12.536 0 28C0 43.464 12.536 56 28 56Z"
+        fill="#219653"
+      ></path>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M27.0769 12H15V46H24.3846V38.8889H27.0769C34.7305 38.8889 41 32.9048 41 25.4444C41 17.984 34.7305 12 27.0769 12ZM24.3846 29.7778V21.1111H27.0769C29.6194 21.1111 31.6154 23.0864 31.6154 25.4444C31.6154 27.8024 29.6194 29.7778 27.0769 29.7778H24.3846Z"
+        fill="#24292E"
+      ></path>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M18 11H29.0769C36.2141 11 42 16.5716 42 23.4444C42 30.3173 36.2141 35.8889 29.0769 35.8889H25.3846V43H18V11ZM25.3846 28.7778H29.0769C32.1357 28.7778 34.6154 26.39 34.6154 23.4444C34.6154 20.4989 32.1357 18.1111 29.0769 18.1111H25.3846V28.7778Z"
+        fill="white"
+      ></path>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M17 10H29.0769C36.7305 10 43 15.984 43 23.4444C43 30.9048 36.7305 36.8889 29.0769 36.8889H26.3846V44H17V10ZM19 12V42H24.3846V34.8889H29.0769C35.6978 34.8889 41 29.7298 41 23.4444C41 17.1591 35.6978 12 29.0769 12H19ZM24.3846 17.1111H29.0769C32.6521 17.1111 35.6154 19.9114 35.6154 23.4444C35.6154 26.9775 32.6521 29.7778 29.0769 29.7778H24.3846V17.1111ZM26.3846 19.1111V27.7778H29.0769C31.6194 27.7778 33.6154 25.8024 33.6154 23.4444C33.6154 21.0864 31.6194 19.1111 29.0769 19.1111H26.3846Z"
+        fill="#24292E"
+      ></path>
     </svg>
   );
 };

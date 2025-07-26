@@ -6,7 +6,7 @@ import { LayoutDashboard, Car, Calendar, Cog, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SignOutButton } from "@clerk/nextjs";
 
-// Navigation items
+// Navigation items 
 const routes = [
   {
     label: "Dashboard",

@@ -13,7 +13,7 @@ import { useAuth } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import useFetch from "@/hooks/use-fetch";
 import { CardSpotlight } from "./ui/card-spotlight";
-
+import { Logo_Dark } from "@/lib/data";
 import React, { useId, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
@@ -262,7 +262,7 @@ export const CarCard = ({ car }) => {
                       <img
                         width={100}
                         height={100}
-                        src={car.images[0]}
+                        src={Logo_Dark[0].image}
                         alt={car.images[0]}
                         className="h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover object-top"
                       />

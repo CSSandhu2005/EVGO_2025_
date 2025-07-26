@@ -10,6 +10,7 @@ const nextConfig = {
         hostname: "thlvatniricqaqedlnlr.supabase.co",
       },
     ],
+    domains: ["api.microlink.io"],
   },
 
   async headers() {
