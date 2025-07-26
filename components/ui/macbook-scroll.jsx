@@ -151,10 +151,10 @@ export const Lid = ({ scaleX, scaleY, rotate, translate, src }) => {
       >
         <div className="absolute inset-0 rounded-lg bg-[#272729]" />
         <img
-          src={"/evgo_dashboard.png"}
+          src={"/browse.png"}
 
           alt="EVGO Admin DashBoard Picture Goes Here."
-          className="absolute inset-0 h-full w-full rounded-lg object-cover object-left-top"
+          className="absolute inset-0 w-full rounded-lg object-cover object-left-top"
         />
       </motion.div>
     </div>

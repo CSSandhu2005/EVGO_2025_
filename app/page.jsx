@@ -31,26 +31,9 @@ import { LinkPreview } from "@/components/ui/link-preview";
 import { MacbookScroll } from "@/components/ui/macbook-scroll";
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
-import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 
 export default async function Home() {
   const featuredCars = await getFeaturedCars();
-
-  const words = [
-    {
-      text: "Trusted, ",
-    },
-    {
-      text: "Verfied ",
-    },
-    {
-      text: "EVs ",
-    },
-    {
-      text: "Aceternity.",
-      className: "text-blue-500 dark:text-blue-500",
-    },
-  ];
 
   const data = [
     {
@@ -67,8 +50,10 @@ export default async function Home() {
             <img
               src="/upload_ev.png"
               alt="startup template"
+              
               className="h-full  rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
             />
+           
           </div>
         </div>
       ),
@@ -86,8 +71,10 @@ export default async function Home() {
             <img
               src="/ev_analysis.png"
               alt="hero template"
+             
               className="h-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
             />
+            
           </div>
         </div>
       ),
@@ -106,8 +93,10 @@ export default async function Home() {
             <img
               src="/ev_verified.png"
               alt="hero template"
+            
               className="h-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
             />
+            
           </div>
         </div>
       ),
@@ -227,43 +216,52 @@ export default async function Home() {
 
       {/* BROWSE BY MAKE */}
       <section className="py-12">
-        <div className="container mx-auto">
-          <div className="flex justify-between items-center mb-8 px-5">
-            <h2 className="text-2xl font-bold">Browse By Make</h2>
-            <Link href="/cars">
-              <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-                <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#EAFF39_50%,#E2CBFF_100%)]" />
-                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
-                  View All <ChevronRight className="ml-1 h-4 w-4" />
-                </span>
-              </button>
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {carMakes.map((make) => (
-              <Link key={make.name} href={`/cars?make=${make.name}`}>
-                {" "}
-                <div className="flex items-center justify-center antialiased">
-                  <GlowingStarsBackgroundCard>
-                    <div className="flex items-center justify-between w-full">
-                      <GlowingStarsTitle>{make.name}</GlowingStarsTitle>
-                      <div className="h-8 w-8 rounded-full bg-[hsla(0,0%,100%,.1)] flex items-center justify-center">
-                        <div
-                          key={make.name}
-                          href={`/cars?make=${make.name}`}
-                          className="cursor-pointer"
-                        >
-                          <Icon />
-                        </div>
-                      </div>
-                    </div>
-                  </GlowingStarsBackgroundCard>
+  <div className="container mx-auto">
+    <div className="flex justify-between items-center mb-8 px-5">
+      <h2 className="text-2xl font-bold">Browse By Make</h2>
+      <Link href="/cars">
+        <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+          <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#EAFF39_50%,#E2CBFF_100%)]" />
+          <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+            View All <ChevronRight className="ml-1 h-4 w-4" />
+          </span>
+        </button>
+      </Link>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4">
+      {carMakes.map((make) => (
+        <Link key={make.name} href={`/cars?make=${make.name}`}>
+          <div className="flex items-center justify-center antialiased">
+            <GlowingStarsBackgroundCard>
+              <div className="flex items-center justify-between w-full">
+                {/* Logo Image */}
+                <img
+                  src={make.logo}
+                  alt={make.name}
+                  className="w-6 h-6 object-contain"
+                />
+                {/* Company Name */}
+                <GlowingStarsTitle>{make.name}</GlowingStarsTitle>
+                {/* Icon Right Side */}
+                <div className="h-8 w-8 rounded-full bg-[hsla(0,0%,100%,.1)] flex items-center justify-center">
+                  <div
+                    key={make.name}
+                    href={`/cars?make=${make.name}`}
+                    className="cursor-pointer"
+                  >
+                    <Icon />
+                  </div>
                 </div>
-              </Link>
-            ))}
+              </div>
+            </GlowingStarsBackgroundCard>
           </div>
-        </div>
-      </section>
+        </Link>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* BROWSE BY BODY TYPE */}
       <section className="py-8 relative px-6">
@@ -355,12 +353,12 @@ export default async function Home() {
           <div className="flex justify-center items-center flex-col px-4">
             <div className="text-neutral-500 dark:text-neutral-400 text-xl md:text-3xl max-w-5xl mx-auto mb-10">
               Upload your EV{" "}
-              <LinkPreview url="https://tailwindcss.com" className="font-bold">
+              <LinkPreview url="https://evgoindia.com/" className="font-bold">
                 Front View
               </LinkPreview>{" "}
               Or{" "}
               <LinkPreview
-                url="https://framer.com/motion"
+                url="https://evgoindia.com/cars"
                 className="font-bold"
               >
                 DashBoard ScreenShot
@@ -370,7 +368,7 @@ export default async function Home() {
             <div className="text-neutral-500 dark:text-neutral-400 text-xl md:text-3xl max-w-5xl mx-auto">
               After A list of checks Done by{" "}
               <LinkPreview
-                url="https://ui.aceternity.com"
+                url="https://evgoindia.com/"
                 className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500"
               >
                 Gemini
@@ -381,7 +379,7 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="h-[25rem] flex items-center justify-center">
+      <div className="h-[40rem] flex items-center justify-center">
         <TextHoverEffect text="EVGO" />
       </div>
     </div>
