@@ -51,7 +51,7 @@ export function Dashboard({ initialData }) {
           {/* KPI Summary Cards */}
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 py-3">
                 <CardTitle className="text-sm font-medium">
                   Total Cars
                 </CardTitle>
@@ -65,7 +65,7 @@ export function Dashboard({ initialData }) {
               </CardContent>
             </Card>
             <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 py-3">
                 <CardTitle className="text-sm font-medium">
                   Test Drives
                 </CardTitle>
@@ -79,7 +79,7 @@ export function Dashboard({ initialData }) {
               </CardContent>
             </Card>
             <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 py-3">
                 <CardTitle className="text-sm font-medium">
                   Conversion Rate
                 </CardTitle>
@@ -95,7 +95,7 @@ export function Dashboard({ initialData }) {
               </CardContent>
             </Card>
             <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 py-3">
                 <CardTitle className="text-sm font-medium">Cars Sold</CardTitle>
                 <DollarSign className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
@@ -109,17 +109,17 @@ export function Dashboard({ initialData }) {
           </div>
 
           {/* Additional Overview Content */}
-          <Card>
+          <Card className="py-4">
             <CardHeader>
               <CardTitle>Dealership Summary</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-gray-50 p-4 rounded-lg">
+                  <div className="bg-gray-50 dark:bg-[#111111] p-4 rounded-lg">
                     <h3 className="font-medium text-sm mb-2">Car Inventory</h3>
                     <div className="flex items-center">
-                      <div className="w-full bg-gray-200 rounded-full h-2.5">
+                      <div className="w-full bg-gray-200 dark:bg-[#111111] rounded-full h-2.5">
                         <div
                           className="bg-green-600 h-2.5 rounded-full"
                           style={{
@@ -136,7 +136,7 @@ export function Dashboard({ initialData }) {
                     </p>
                   </div>
 
-                  <div className="bg-gray-50 p-4 rounded-lg">
+                  <div className="bg-gray-50 p-4 rounded-lg dark:bg-[#111111] ">
                     <h3 className="font-medium text-sm mb-2">
                       Test Drive Success
                     </h3>
@@ -199,7 +199,7 @@ export function Dashboard({ initialData }) {
         <TabsContent value="test-drives" className="space-y-6">
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
             <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 py-2">
                 <CardTitle className="text-sm font-medium">
                   Total Bookings
                 </CardTitle>
@@ -210,7 +210,7 @@ export function Dashboard({ initialData }) {
               </CardContent>
             </Card>
             <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 py-2">
                 <CardTitle className="text-sm font-medium">Pending</CardTitle>
                 <Clock className="h-4 w-4 text-amber-500" />
               </CardHeader>
@@ -223,7 +223,7 @@ export function Dashboard({ initialData }) {
               </CardContent>
             </Card>
             <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 py-2">
                 <CardTitle className="text-sm font-medium">Confirmed</CardTitle>
                 <CheckCircle className="h-4 w-4 text-green-500" />
               </CardHeader>
@@ -236,7 +236,7 @@ export function Dashboard({ initialData }) {
               </CardContent>
             </Card>
             <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 py-2">
                 <CardTitle className="text-sm font-medium">Completed</CardTitle>
                 <CheckCircle className="h-4 w-4 text-blue-500" />
               </CardHeader>
@@ -249,7 +249,7 @@ export function Dashboard({ initialData }) {
               </CardContent>
             </Card>
             <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 py-2">
                 <CardTitle className="text-sm font-medium">Cancelled</CardTitle>
                 <XCircle className="h-4 w-4 text-red-500" />
               </CardHeader>
@@ -264,7 +264,7 @@ export function Dashboard({ initialData }) {
           </div>
 
           {/* Test Drive Status Visualization */}
-          <Card>
+          <Card className="py-4">
             <CardHeader>
               <CardTitle>Test Drive Statistics</CardTitle>
             </CardHeader>
@@ -272,20 +272,20 @@ export function Dashboard({ initialData }) {
               <div className="space-y-6">
                 <div className="grid grid-cols-2 gap-6">
                   {/* Conversion Rate Card */}
-                  <div className="bg-gray-50 rounded-lg p-4">
+                  <div className="bg-gray-50 dark:bg-[#111111] rounded-lg p-4">
                     <h3 className="text-lg font-medium mb-2">
                       Conversion Rate
                     </h3>
                     <div className="text-3xl font-bold text-blue-600">
                       {testDrives.conversionRate}%
                     </div>
-                    <p className="text-sm text-gray-600 mt-1">
+                    <p className="text-sm text-gray-600 mt-1 ">
                       Test drives resulting in car purchases
                     </p>
                   </div>
 
                   {/* Test Drive Success Rate */}
-                  <div className="bg-gray-50 rounded-lg p-4">
+                  <div className="bg-gray-50 rounded-lg p-4 dark:bg-[#111111]">
                     <h3 className="text-lg font-medium mb-2">
                       Completion Rate
                     </h3>

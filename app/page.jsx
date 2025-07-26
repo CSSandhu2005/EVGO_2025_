@@ -31,9 +31,26 @@ import { LinkPreview } from "@/components/ui/link-preview";
 import { MacbookScroll } from "@/components/ui/macbook-scroll";
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 
 export default async function Home() {
   const featuredCars = await getFeaturedCars();
+
+  const words = [
+    {
+      text: "Trusted, ",
+    },
+    {
+      text: "Verfied ",
+    },
+    {
+      text: "EVs ",
+    },
+    {
+      text: "Aceternity.",
+      className: "text-blue-500 dark:text-blue-500",
+    },
+  ];
 
   const data = [
     {
@@ -433,8 +450,17 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="h-[40rem] flex items-center justify-center">
+      <div className="h-[25rem] flex items-center justify-center">
         <TextHoverEffect text="EVGO" />
+
+        <div className="flex flex-col items-center justify-center h-[20rem] gap-5">
+          <TypewriterEffectSmooth words={words} />
+          <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4">
+            <button href="/cars" className="w-40 h-10 rounded-xl bg-white text-black border border-black text-sm">
+              Explore Evs
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

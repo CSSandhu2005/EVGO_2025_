@@ -303,7 +303,7 @@ export const AddCarForm = () => {
         </TabsList>
 
         <TabsContent value="manual" className="mt-6">
-          <Card>
+          <Card className="py-4">
             <CardHeader>
               <CardTitle>Car Details</CardTitle>
               <CardDescription>
@@ -652,7 +652,7 @@ export const AddCarForm = () => {
         </TabsContent>
 
         <TabsContent value="ai" className="mt-6">
-          <Card>
+          <Card className="py-4">
             <CardHeader>
               <CardTitle>AI-Powered Car Details Extraction</CardTitle>
               <CardDescription>

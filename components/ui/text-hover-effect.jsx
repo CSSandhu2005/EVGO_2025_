@@ -2,29 +2,30 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-export const TextHoverEffect = ({
-  text,
-  duration
-}) => {
+export const TextHoverEffect = ({ text, duration }) => {
   const svgRef = useRef(null);
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
   const [hovered, setHovered] = useState(false);
   const [maskPosition, setMaskPosition] = useState({ cx: "50%", cy: "50%" });
 
   useEffect(() => {
-    if (svgRef.current && cursor.x !== null && cursor.y !== null) {
-      const svgRect = svgRef.current.getBoundingClientRect();
-      const cxPercentage = ((cursor.x - svgRect.left) / svgRect.width) * 100;
-      const cyPercentage = ((cursor.y - svgRect.top) / svgRect.height) * 100;
-      setMaskPosition({
-        cx: `${cxPercentage}%`,
-        cy: `${cyPercentage}%`,
-      });
+    if (!svgRef.current) return;
+
+    const svgRect = svgRef.current.getBoundingClientRect();
+    const cxPercentage = ((cursor.x - svgRect.left) / svgRect.width) * 100;
+    const cyPercentage = ((cursor.y - svgRect.top) / svgRect.height) * 100;
+
+    const newCx = `${cxPercentage.toFixed(2)}%`;
+    const newCy = `${cyPercentage.toFixed(2)}%`;
+
+    // Only update if changed
+    if (newCx !== maskPosition.cx || newCy !== maskPosition.cy) {
+      setMaskPosition({ cx: newCx, cy: newCy });
     }
-  }, [cursor]);
+  }, [cursor, maskPosition]);
 
   return (
-    (<svg
+    <svg
       ref={svgRef}
       width="100%"
       height="100%"
@@ -33,14 +34,10 @@ export const TextHoverEffect = ({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
-      className="select-none">
+      className="select-none"
+    >
       <defs>
-        <linearGradient
-          id="textGradient"
-          gradientUnits="userSpaceOnUse"
-          cx="50%"
-          cy="50%"
-          r="25%">
+        <linearGradient id="textGradient" gradientUnits="userSpaceOnUse" cx="50%" cy="50%" r="25%">
           {hovered && (
             <>
               <stop offset="0%" stopColor="#eab308" />
@@ -58,20 +55,18 @@ export const TextHoverEffect = ({
           r="20%"
           initial={{ cx: "50%", cy: "50%" }}
           animate={maskPosition}
-          // example for a smoother animation below
-          //   transition={{
-          //     type: "spring",
-          //     stiffness: 300,
-          //     damping: 50,
-          //   }}
-          transition={{ duration: duration ?? 0, ease: "easeOut" }}>
+          transition={{ duration: duration ?? 0.3, ease: "easeOut" }}
+        >
           <stop offset="0%" stopColor="white" />
           <stop offset="100%" stopColor="black" />
         </motion.radialGradient>
+
         <mask id="textMask">
           <rect x="0" y="0" width="100%" height="100%" fill="url(#revealMask)" />
         </mask>
       </defs>
+
+      {/* Base outline text */}
       <text
         x="50%"
         y="50%"
@@ -79,9 +74,12 @@ export const TextHoverEffect = ({
         dominantBaseline="middle"
         strokeWidth="0.3"
         className="fill-transparent stroke-neutral-200 font-[helvetica] text-7xl font-bold dark:stroke-neutral-800"
-        style={{ opacity: hovered ? 0.7 : 0 }}>
+        style={{ opacity: hovered ? 0.7 : 0 }}
+      >
         {text}
       </text>
+
+      {/* Animated outline draw */}
       <motion.text
         x="50%"
         y="50%"
@@ -97,9 +95,12 @@ export const TextHoverEffect = ({
         transition={{
           duration: 4,
           ease: "easeInOut",
-        }}>
+        }}
+      >
         {text}
       </motion.text>
+
+      {/* Gradient reveal text */}
       <text
         x="50%"
         y="50%"
@@ -108,9 +109,10 @@ export const TextHoverEffect = ({
         stroke="url(#textGradient)"
         strokeWidth="0.3"
         mask="url(#textMask)"
-        className="fill-transparent font-[helvetica] text-7xl font-bold">
+        className="fill-transparent font-[helvetica] text-7xl font-bold"
+      >
         {text}
       </text>
-    </svg>)
+    </svg>
   );
 };

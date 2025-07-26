@@ -233,8 +233,8 @@ export const SettingsForm = () => {
         </TabsList>
 
         <TabsContent value="hours" className="space-y-6 mt-6">
-          <Card>
-            <CardHeader>
+          <Card className="pb-6"> 
+            <CardHeader className="pt-4">
               <CardTitle>Working Hours</CardTitle>
               <CardDescription>
                 Set your dealership's working hours for each day of the week.
@@ -336,7 +336,7 @@ export const SettingsForm = () => {
 
         <TabsContent value="admins" className="space-y-6 mt-6">
           <Card>
-            <CardHeader>
+            <CardHeader className="pt-4">
               <CardTitle>Admin Users</CardTitle>
               <CardDescription>
                 Manage users with admin privileges.
@@ -393,7 +393,7 @@ export const SettingsForm = () => {
                             <Badge
                               className={
                                 user.role === "ADMIN"
-                                  ? "bg-green-800"
+                                  ? "bg-[#bbf002]"
                                   : "bg-gray-800"
                               }
                             >
